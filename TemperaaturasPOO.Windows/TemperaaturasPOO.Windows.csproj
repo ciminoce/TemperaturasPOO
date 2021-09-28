@@ -46,8 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmTemperaturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTemperaturas.Designer.cs">
+      <DependentUpon>FrmTemperaturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTemperaturasEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTemperaturasEdit.Designer.cs">
+      <DependentUpon>FrmTemperaturasEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmTemperaturas.resx">
+      <DependentUpon>FrmTemperaturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTemperaturasEdit.resx">
+      <DependentUpon>FrmTemperaturasEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -56,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -69,6 +88,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_file_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_pane_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conversion_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_document_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_file_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restart_36px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TemperaturasPOO.Datos\TemperaturasPOO.Datos.csproj">
+      <Project>{dbc8ac0f-20ed-46dc-b347-b73cbebce066}</Project>
+      <Name>TemperaturasPOO.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemperaturasPOO.Entidades\TemperaturasPOO.Entidades.csproj">
+      <Project>{928b39f0-a663-4a3c-8dbb-ea40b97e8bca}</Project>
+      <Name>TemperaturasPOO.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

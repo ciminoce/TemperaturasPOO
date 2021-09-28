@@ -31,5 +31,9 @@ namespace TemperaturasPOO.Datos
             return temperaturas.Count;
         }
 
+        public bool Borrar(Temperatura temperatura)
+        {
+            return temperaturas.Remove(temperatura);
+        }
     }
 }

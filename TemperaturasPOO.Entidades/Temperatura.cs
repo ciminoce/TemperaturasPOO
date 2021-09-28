@@ -10,7 +10,7 @@ namespace TemperaturasPOO.Entidades
     {
         private double Grados;
 
-        private void SetGrados(double grados)
+        public void SetGrados(double grados)
         {
             Grados = grados;
         }
@@ -22,7 +22,7 @@ namespace TemperaturasPOO.Entidades
 
         public Temperatura()//Constructor por defecto
         {
-             SetGrados(ObtenerTemperatura(-10.0,26.9));   
+             //SetGrados(ObtenerTemperatura(-10.0,26.9));   
         }
 
         public Temperatura(double grados)
