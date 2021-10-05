@@ -38,14 +38,22 @@ namespace TemperaaturasPOO.Windows
             try
             {
                 Temperatura temperatura = frm.GetTemperatura();
-                repositorio.Agregar(temperatura);
-                DataGridViewRow r = ConstruirFila();//creo una fila en blanco
-                r.CreateCells(DatosDataGridView);//le creo las celdas 
-                SetearFila(r, temperatura);
-                AgregarFila(r);
-                ActualizarContadorRegistros();
-                MessageBox.Show("Registro agregado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!repositorio.Existe(temperatura))
+                {
+                    repositorio.Agregar(temperatura);
+                    DataGridViewRow r = ConstruirFila();//creo una fila en blanco
+                    r.CreateCells(DatosDataGridView);//le creo las celdas 
+                    SetearFila(r, temperatura);
+                    AgregarFila(r);
+                    ActualizarContadorRegistros();
+                    MessageBox.Show("Registro agregado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                }
+                else
+                {
+                    MessageBox.Show("Temperatura está repetida... Alta denegada!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
             }
             catch (Exception exception)
             {
@@ -67,6 +75,8 @@ namespace TemperaaturasPOO.Windows
         private void SetearFila(DataGridViewRow r, Temperatura temperatura)
         {
             r.Cells[colTemperatura.Index].Value = temperatura.GetGrados();
+            r.Cells[colFahrenheit.Index].Value = temperatura.GetFahrenheit();
+            r.Cells[colReaumur.Index].Value = temperatura.GetReaumur();
 
             r.Tag = temperatura;
         }
@@ -76,9 +86,29 @@ namespace TemperaaturasPOO.Windows
             return new DataGridViewRow();
         }
 
+        private List<Temperatura> listaTemperaturas;
         private void FrmTemperaturas_Load(object sender, EventArgs e)
         {
             repositorio = new TemperaturasRepositorio();//Instancio el repositorio
+            if (repositorio.GetCantidad()>0)
+            {
+                //Si tengo datos entonces los muestro
+                listaTemperaturas = repositorio.GetLista();
+                ActualizarContadorRegistros();
+                MostrarDatosEnGrilla();
+            }
+        }
+
+        private void MostrarDatosEnGrilla()
+        {
+            DatosDataGridView.Rows.Clear();
+            foreach (var temperatura in listaTemperaturas)
+            {
+                DataGridViewRow r = ConstruirFila();
+                r.CreateCells(DatosDataGridView);
+                SetearFila(r,temperatura);
+                AgregarFila(r);
+            }
         }
 
         private void BorrarToolStripButton_Click(object sender, EventArgs e)

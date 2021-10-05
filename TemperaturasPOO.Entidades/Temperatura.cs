@@ -39,5 +39,29 @@ namespace TemperaturasPOO.Entidades
             return Convert.ToDouble($"{parteEntera},{parteDecimal[0]}");
         }
 
+        public double GetFahrenheit()
+        {
+            return 1.8 * Grados + 32;
+        }
+
+        public double GetReaumur()
+        {
+            return 0.8*Grados ;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj==null || !(obj is Temperatura))
+            {
+                return false;
+            }
+
+            return this.Grados == ((Temperatura) obj).Grados;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Grados.GetHashCode();
+        }
     }
 }

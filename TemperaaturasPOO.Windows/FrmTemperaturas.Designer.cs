@@ -30,19 +30,21 @@ namespace TemperaaturasPOO.Windows
         private void InitializeComponent()
         {
             this.BarraHerramientasToolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.colTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CantidadRegistrosLabel = new System.Windows.Forms.Label();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.FiltrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SalirToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.CantidadRegistrosLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.colTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFahrenheit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReaumur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BarraHerramientasToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -67,79 +69,6 @@ namespace TemperaaturasPOO.Windows
             this.BarraHerramientasToolStrip.Size = new System.Drawing.Size(846, 58);
             this.BarraHerramientasToolStrip.TabIndex = 0;
             this.BarraHerramientasToolStrip.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 58);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 58);
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 58);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.DatosDataGridView);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.CantidadRegistrosLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(846, 568);
-            this.splitContainer1.SplitterDistance = 448;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // DatosDataGridView
-            // 
-            this.DatosDataGridView.AllowUserToAddRows = false;
-            this.DatosDataGridView.AllowUserToDeleteRows = false;
-            this.DatosDataGridView.AllowUserToResizeColumns = false;
-            this.DatosDataGridView.AllowUserToResizeRows = false;
-            this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colTemperatura});
-            this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.DatosDataGridView.MultiSelect = false;
-            this.DatosDataGridView.Name = "DatosDataGridView";
-            this.DatosDataGridView.ReadOnly = true;
-            this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(846, 448);
-            this.DatosDataGridView.TabIndex = 0;
-            // 
-            // colTemperatura
-            // 
-            this.colTemperatura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTemperatura.HeaderText = "Celsius";
-            this.colTemperatura.Name = "colTemperatura";
-            this.colTemperatura.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cantidad de Registros:";
-            // 
-            // CantidadRegistrosLabel
-            // 
-            this.CantidadRegistrosLabel.AutoSize = true;
-            this.CantidadRegistrosLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CantidadRegistrosLabel.Location = new System.Drawing.Point(142, 25);
-            this.CantidadRegistrosLabel.Name = "CantidadRegistrosLabel";
-            this.CantidadRegistrosLabel.Size = new System.Drawing.Size(14, 13);
-            this.CantidadRegistrosLabel.TabIndex = 0;
-            this.CantidadRegistrosLabel.Text = "0";
             // 
             // NuevoToolStripButton
             // 
@@ -174,6 +103,11 @@ namespace TemperaaturasPOO.Windows
             this.EditarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EditarToolStripButton.Click += new System.EventHandler(this.EditarToolStripButton_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 58);
+            // 
             // FiltrarToolStripButton
             // 
             this.FiltrarToolStripButton.Image = global::TemperaaturasPOO.Windows.Properties.Resources.conversion_36px;
@@ -194,6 +128,11 @@ namespace TemperaaturasPOO.Windows
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 58);
+            // 
             // SalirToolStripButton
             // 
             this.SalirToolStripButton.Image = global::TemperaaturasPOO.Windows.Properties.Resources.close_pane_36px;
@@ -204,6 +143,85 @@ namespace TemperaaturasPOO.Windows
             this.SalirToolStripButton.Text = "Salir";
             this.SalirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.SalirToolStripButton.Click += new System.EventHandler(this.SalirToolStripButton_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 58);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.DatosDataGridView);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.CantidadRegistrosLabel);
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
+            this.splitContainer1.Size = new System.Drawing.Size(846, 568);
+            this.splitContainer1.SplitterDistance = 448;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // DatosDataGridView
+            // 
+            this.DatosDataGridView.AllowUserToAddRows = false;
+            this.DatosDataGridView.AllowUserToDeleteRows = false;
+            this.DatosDataGridView.AllowUserToResizeColumns = false;
+            this.DatosDataGridView.AllowUserToResizeRows = false;
+            this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colTemperatura,
+            this.colFahrenheit,
+            this.colReaumur});
+            this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.DatosDataGridView.MultiSelect = false;
+            this.DatosDataGridView.Name = "DatosDataGridView";
+            this.DatosDataGridView.ReadOnly = true;
+            this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DatosDataGridView.Size = new System.Drawing.Size(846, 448);
+            this.DatosDataGridView.TabIndex = 0;
+            // 
+            // CantidadRegistrosLabel
+            // 
+            this.CantidadRegistrosLabel.AutoSize = true;
+            this.CantidadRegistrosLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CantidadRegistrosLabel.Location = new System.Drawing.Point(142, 25);
+            this.CantidadRegistrosLabel.Name = "CantidadRegistrosLabel";
+            this.CantidadRegistrosLabel.Size = new System.Drawing.Size(14, 13);
+            this.CantidadRegistrosLabel.TabIndex = 0;
+            this.CantidadRegistrosLabel.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cantidad de Registros:";
+            // 
+            // colTemperatura
+            // 
+            this.colTemperatura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTemperatura.HeaderText = "Celsius";
+            this.colTemperatura.Name = "colTemperatura";
+            this.colTemperatura.ReadOnly = true;
+            // 
+            // colFahrenheit
+            // 
+            this.colFahrenheit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFahrenheit.HeaderText = "Fahrenheit";
+            this.colFahrenheit.Name = "colFahrenheit";
+            this.colFahrenheit.ReadOnly = true;
+            // 
+            // colReaumur
+            // 
+            this.colReaumur.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colReaumur.HeaderText = "Reaumur";
+            this.colReaumur.Name = "colReaumur";
+            this.colReaumur.ReadOnly = true;
             // 
             // FrmTemperaturas
             // 
@@ -243,8 +261,10 @@ namespace TemperaaturasPOO.Windows
         private System.Windows.Forms.ToolStripButton SalirToolStripButton;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTemperatura;
         private System.Windows.Forms.Label CantidadRegistrosLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTemperatura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFahrenheit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReaumur;
     }
 }
