@@ -40,11 +40,11 @@ namespace TemperaaturasPOO.Windows
             this.SalirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.CantidadRegistrosLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.colTemperatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFahrenheit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReaumur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadRegistrosLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.BarraHerramientasToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -117,6 +117,7 @@ namespace TemperaaturasPOO.Windows
             this.FiltrarToolStripButton.Size = new System.Drawing.Size(41, 55);
             this.FiltrarToolStripButton.Text = "Filtrar";
             this.FiltrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.FiltrarToolStripButton.Click += new System.EventHandler(this.FiltrarToolStripButton_Click);
             // 
             // ActualizarToolStripButton
             // 
@@ -127,6 +128,7 @@ namespace TemperaaturasPOO.Windows
             this.ActualizarToolStripButton.Size = new System.Drawing.Size(63, 55);
             this.ActualizarToolStripButton.Text = "Actualizar";
             this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ActualizarToolStripButton.Click += new System.EventHandler(this.ActualizarToolStripButton_Click);
             // 
             // toolStripSeparator2
             // 
@@ -183,25 +185,6 @@ namespace TemperaaturasPOO.Windows
             this.DatosDataGridView.Size = new System.Drawing.Size(846, 448);
             this.DatosDataGridView.TabIndex = 0;
             // 
-            // CantidadRegistrosLabel
-            // 
-            this.CantidadRegistrosLabel.AutoSize = true;
-            this.CantidadRegistrosLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CantidadRegistrosLabel.Location = new System.Drawing.Point(142, 25);
-            this.CantidadRegistrosLabel.Name = "CantidadRegistrosLabel";
-            this.CantidadRegistrosLabel.Size = new System.Drawing.Size(14, 13);
-            this.CantidadRegistrosLabel.TabIndex = 0;
-            this.CantidadRegistrosLabel.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cantidad de Registros:";
-            // 
             // colTemperatura
             // 
             this.colTemperatura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -222,6 +205,25 @@ namespace TemperaaturasPOO.Windows
             this.colReaumur.HeaderText = "Reaumur";
             this.colReaumur.Name = "colReaumur";
             this.colReaumur.ReadOnly = true;
+            // 
+            // CantidadRegistrosLabel
+            // 
+            this.CantidadRegistrosLabel.AutoSize = true;
+            this.CantidadRegistrosLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CantidadRegistrosLabel.Location = new System.Drawing.Point(142, 25);
+            this.CantidadRegistrosLabel.Name = "CantidadRegistrosLabel";
+            this.CantidadRegistrosLabel.Size = new System.Drawing.Size(14, 13);
+            this.CantidadRegistrosLabel.TabIndex = 0;
+            this.CantidadRegistrosLabel.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cantidad de Registros:";
             // 
             // FrmTemperaturas
             // 

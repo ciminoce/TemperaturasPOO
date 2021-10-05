@@ -101,5 +101,55 @@ namespace TemperaturasPOO.Datos
         {
             return new Temperatura(double.Parse(linea));
         }
+
+        public void Editar(Temperatura temperaturaOriginal, Temperatura temperaturaEditada)
+        {
+            EditarEnArchivo(temperaturaOriginal, temperaturaEditada);
+            /*
+             * una vez modificado el archivo
+             * veo en que posicion se encuentra la temperatura original
+             * en la lista, usando en método FindIndex
+             */
+            var index = temperaturas.FindIndex(t => t.GetGrados() == temperaturaOriginal.GetGrados());
+            /*
+             * Quito de la lista el elemento de la posicion anteriormente
+             * conseguida por el FindIndex
+             */
+            temperaturas.RemoveAt(index);//la quito de la lista
+            /*
+             * Inserto en dicho lugar la nueva temperatura
+             */
+            temperaturas.Insert(index,temperaturaEditada);//la inserto en la pos anterior.
+        }
+
+        private void EditarEnArchivo(Temperatura temperaturaOriginal, Temperatura temperaturaEditada)
+        {
+            StreamReader lector = new StreamReader(_archivo);
+            StreamWriter escritor = new StreamWriter(_archivoBak);
+            while (!lector.EndOfStream)
+            {
+                var linea = lector.ReadLine();
+                Temperatura temperaturaEnArchivo = ConstruirTemperatura(linea);
+                if (!temperaturaEnArchivo.Equals(temperaturaOriginal))
+                {
+                    escritor.WriteLine(linea);
+                }
+                else
+                {
+                    linea = ConstruirLinea(temperaturaEditada);
+                    escritor.WriteLine(linea);
+                }
+            }
+            lector.Close();
+            escritor.Close();
+            File.Delete(_archivo);
+            File.Move(_archivoBak, _archivo);
+
+        }
+
+        public List<Temperatura> Filtrar(double temperaturaAFiltrar)
+        {
+            return temperaturas.Where(t => t.GetGrados() > temperaturaAFiltrar).ToList();
+        }
     }
 }

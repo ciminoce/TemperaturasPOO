@@ -93,10 +93,15 @@ namespace TemperaaturasPOO.Windows
             if (repositorio.GetCantidad()>0)
             {
                 //Si tengo datos entonces los muestro
-                listaTemperaturas = repositorio.GetLista();
+                CargarTodosLosRegistros();
                 ActualizarContadorRegistros();
-                MostrarDatosEnGrilla();
             }
+        }
+
+        private void CargarTodosLosRegistros()
+        {
+            listaTemperaturas = repositorio.GetLista();
+            MostrarDatosEnGrilla();
         }
 
         private void MostrarDatosEnGrilla()
@@ -153,17 +158,41 @@ namespace TemperaaturasPOO.Windows
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
             Temperatura temperatura = (Temperatura) r.Tag;
+            Temperatura temperaturaCopia = (Temperatura) temperatura.Clone();
             FrmTemperaturasEdit frm = new FrmTemperaturasEdit() {Text = "Modificar una Temperatura"};
-            frm.SetTemperatura(temperatura);//La paso para modificar
+            frm.SetTemperatura(temperaturaCopia);//La paso para modificar
             DialogResult dr = frm.ShowDialog(this);
             if (dr==DialogResult.OK)
             {
-                temperatura = frm.GetTemperatura();//La obtengo modificada
-                SetearFila(r,temperatura);
-                MessageBox.Show("Registro Modificado!!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                temperaturaCopia = frm.GetTemperatura();//La obtengo modificada
+                if (!repositorio.Existe(temperaturaCopia))
+                {
+                    repositorio.Editar(temperatura, temperaturaCopia);
+                    SetearFila(r,temperaturaCopia);
+                    MessageBox.Show("Registro Modificado!!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+                else
+                {
+                    SetearFila(r, temperatura);
+                    MessageBox.Show("Temperatura repetida... Alta denegada!!!!", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
 
             }
 
+        }
+
+        private void FiltrarToolStripButton_Click(object sender, EventArgs e)
+        {
+            double temperaturaAFiltrar = 17;
+            listaTemperaturas=repositorio.Filtrar(temperaturaAFiltrar);
+            MostrarDatosEnGrilla();
+        }
+
+        private void ActualizarToolStripButton_Click(object sender, EventArgs e)
+        {
+            CargarTodosLosRegistros();
         }
     }
 }

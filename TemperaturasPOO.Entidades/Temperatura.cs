@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TemperaturasPOO.Entidades
 {
-    public class Temperatura
+    public class Temperatura:ICloneable
     {
         private double Grados;
 
@@ -55,13 +55,18 @@ namespace TemperaturasPOO.Entidades
             {
                 return false;
             }
-
-            return this.Grados == ((Temperatura) obj).Grados;
+            
+            return this.Grados == ((Temperatura)obj).Grados;
         }
 
         public override int GetHashCode()
         {
             return this.Grados.GetHashCode();
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();//hace una copia del objeto
         }
     }
 }
